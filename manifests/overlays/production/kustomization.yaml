@@ -1,0 +1,10 @@
+bases:
+- ../../base
+namespace: production
+patchesJson6902:
+- target:
+    group: extensions
+    version: v1beta1
+    kind: Ingress
+    name: website
+  path: ingress_patch.yaml

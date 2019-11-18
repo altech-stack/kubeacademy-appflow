@@ -1,0 +1,7 @@
+- op: replace
+  path: /spec/rules/0/http/paths
+  value:
+    - path: '/blog(.*)'
+      backend:
+        serviceName: website
+        servicePort: 80

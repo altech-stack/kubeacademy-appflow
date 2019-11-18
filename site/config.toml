@@ -1,0 +1,40 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Container Workflows"
+theme = "minimal"
+
+[params]
+    author = "VMware"
+    description = "Deployed on Kubernetes!"
+    githubUsername = "vmware-tanzu"
+    accent = "blue"
+    showBorder = true
+    backgroundColor = "white"
+    font = "Raleway"
+    highlight = true
+    highlightStyle = "default"
+    highlightLanguages = ["go", "haskell", "kotlin", "scala", "swift"]
+
+[[menu.main]]
+    url = "/"
+    name = "Home"
+    weight = 1
+
+# Social icons to be shown on the right-hand side of the navigation bar.
+# The "name" field should match the name of the icon in Font Awesome.
+# The list of available icons can be found at http://fontawesome.io/icons.
+
+[[menu.icon]]
+    url = "mailto:me@example.com"
+    name = "envelope-o"
+    weight = 1
+
+[[menu.icon]]
+    url = "https://github.com/vmware-tanzu/"
+    name = "github"
+    weight = 2
+
+[[menu.icon]]
+    url = "https://twitter.com/vmware/"
+    name = "twitter"
+    weight = 3

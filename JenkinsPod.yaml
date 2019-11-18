@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    component: jenkins-builder
+spec:
+  nodeSelector:
+    kubernetes.io/hostname: master
+  tolerations:
+  - key: "node-role.kubernetes.io/master"
+  containers:
+  - name: hugo
+    image: hhoover/hugo:0.59.1
+    imagePullPolicy: Always
+    command:
+    - cat
+    tty: true
+  - name: kubectl
+    image: hhoover/kubectl:1.16.2
+    imagePullPolicy: Always
+    command:
+    - cat
+    tty: true
+  - name: html-proofer
+    image: hhoover/html-proofer:3.6.0
+    imagePullPolicy: Always
+    command:
+    - cat
+    tty: true
+  - name: docker
+    image: docker
+    command:
+    - cat
+    tty: true
+    env:
+      - name: DOCKER_CONFIG
+        value: "/tmp/"
+    volumeMounts:
+    - name: dockersock
+      mountPath: "/var/run/docker.sock"
+    - name: docker-config
+      mountPath: "/tmp"
+  volumes:
+  - name: dockersock
+    hostPath:
+      path: /var/run/docker.sock
+  - name: docker-config
+    secret:
+      secretName: docker-config
